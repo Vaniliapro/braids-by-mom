@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Braids by Mom</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap">
+
+<style>
+/* ── Layout: warm split — full-bleed photo top, content below, light & personal ── */
+:root {
+  --bg:       #FBF8F4;
+  --bg-soft:  #F3EEE8;
+  --fg:       #1A1410;
+  --fg-mid:   #5A4A3A;
+  --fg-light: #9A8878;
+  --rose:     #C4706A;
+  --rose-pale:#F7EAE9;
+  --border:   rgba(90,74,58,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:       #1A1410;
+    --bg-soft:  #241C16;
+    --fg:       #F3EEE8;
+    --fg-mid:   #C8B8A8;
+    --fg-light: #8A7868;
+    --rose:     #D4807A;
+    --rose-pale:#2E1C1A;
+    --border:   rgba(200,184,168,0.12);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:       #1A1410;
+  --bg-soft:  #241C16;
+  --fg:       #F3EEE8;
+  --fg-mid:   #C8B8A8;
+  --fg-light: #8A7868;
+  --rose:     #D4807A;
+  --rose-pale:#2E1C1A;
+  --border:   rgba(200,184,168,0.12);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 80px 24px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── PHOTO GALLERY ── */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  margin: 0;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.gallery img:nth-child(2) {
+  object-position: center 20%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 10vw, 96px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  color: var(--fg);
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.hero-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--fg-mid);
+  margin-bottom: 36px;
+  text-wrap: balance;
+  max-width: 480px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.meta-pill {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fg-mid);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  background: var(--bg-soft);
+}
+
+.meta-pill.accent {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: #fff;
+  font-weight: 500;
+}
+
+.meta-sep {
+  color: var(--fg-light);
+  font-size: 12px;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 40px;
+  transition: background 0.2s, color 0.2s;
+}
+.hero-cta:hover {
+  background: var(--rose);
+  color: #fff;
+}
+
+/* ── FOR WHO ── */
+.forwho {
+  background: var(--rose-pale);
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.forwho-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 20px;
+}
+
+.forwho-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--fg);
+  max-width: 600px;
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.forwho-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fg-mid);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── WHAT YOU LEARN ── */
+.learn {
+  padding: 80px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--fg-light);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+}
+
+.learn-card {
+  background: var(--bg-soft);
+  padding: 32px 28px;
+}
+
+.learn-icon {
+  font-size: 22px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.learn-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--fg);
+}
+
+.learn-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-mid);
+}
+
+/* ── PROMISE ── */
+.promise {
+  background: var(--fg);
+  color: var(--bg);
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.promise-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(24px, 4vw, 40px);
+  line-height: 1.3;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: #F3EEE8;
+  text-wrap: balance;
+}
+
+.promise-attr {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+/* ── DETAILS ── */
+.details {
+  padding: 72px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.details-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--fg);
+}
+
+.details-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+.detail-key {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fg-light);
+  flex-shrink: 0;
+}
+
+.detail-val {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--fg);
+  text-align: right;
+}
+
+.detail-val.price-big {
+  font-size: 28px;
+  color: var(--rose);
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--bg-soft);
+  padding: 72px 24px;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+.cta-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.cta-desc {
+  font-size: 14px;
+  color: var(--fg-mid);
+  margin-bottom: 36px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--rose);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 48px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover {
+  background: var(--fg);
+  transform: translateY(-1px);
+}
+
+.cta-note {
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--fg-light);
+  letter-spacing: 1px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 36px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--fg-mid);
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fg-light);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery img:last-child {
+    display: none;
+  }
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .detail-val { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Χαρα Στεργιου · Hair Educator</div>
+    <h1 class="hero-title">Braids<br><em>by Mom</em></h1>
+    <p class="hero-sub">Μάθε να πλέκεις τα μαλλιά της κόρης σου - από το μηδέν.</p>
+    <div class="hero-meta">
+      <span class="meta-pill accent">Κυριακη 6 Δεκεμβριου 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-pill">Θεσσαλονικη</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-pill">150€</span>
+    </div>
+    <a class="hero-cta" href="#form">Δηλωστε Συμμετοχη</a>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho">
+  <div class="forwho-label">ΓΙΑ ΠΟΙΕΣ ΕΙΝΑΙ</div>
+  <h2 class="forwho-title">Για κάθε μαμά που είπε «θέλω να μάθω να φτιάχνω τα μαλλιά της»</h2>
+  <p class="forwho-desc">Δεν χρειάζεσαι εμπειρία. Δεν χρειάζεσαι εργαλεία. Φέρνεις μαζί σου την επιθυμία να μάθεις - η Χαρά αναλαμβάνει τα υπόλοιπα.</p>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <img src="assets/images/braids-mom-1.jpg" alt="Braids σε κοριτσάκι">
+  <img src="assets/images/braids-mom-2.jpg" alt="Braids με χρώμα">
+  <img src="assets/images/braids-mom-3.jpg" alt="Braids με extensions">
+</section>
+
+<!-- WHAT YOU LEARN -->
+<section class="learn">
+  <div class="section-label">ΤΙ ΜΑΘΑΙΝΕΙΣ</div>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <span class="learn-icon">✦</span>
+      <div class="learn-title">Βασικές τεχνικές</div>
+      <p class="learn-desc">Πλέξιμο από τη ρίζα, μέτρημα τμημάτων, διακόσμηση - με πρόσθετο ή χωρίς.</p>
+    </div>
+    <div class="learn-card">
+      <span class="learn-icon">✦</span>
+      <div class="learn-title">Εργαλεία & προϊόντα</div>
+      <p class="learn-desc">Τι χρειάζεσαι, τι δεν χρειάζεσαι, και πού να το βρεις - απλά και οικονομικά.</p>
+    </div>
+    <div class="learn-card">
+      <span class="learn-icon">✦</span>
+      <div class="learn-title">Hands-on εξάσκηση</div>
+      <p class="learn-desc">Εκτελείς μόνη σου σε κούκλα - με τη Χαρά δίπλα σου σε κάθε βήμα.</p>
+    </div>
+    <div class="learn-card">
+      <span class="learn-icon">✦</span>
+      <div class="learn-title">Φεύγεις έτοιμη</div>
+      <p class="learn-desc">Το επόμενο Σαββατοκύριακο φτιάχνεις εσύ τα μαλλιά της κόρης σου.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <p class="promise-quote">«Δεν χρειάζεται να είσαι κομμώτρια. Χρειάζεται μόνο να είσαι η μαμά της.»</p>
+  <div class="promise-attr">Χαρα Στεργιου · Hair Educator</div>
+</section>
+
+<!-- DETAILS -->
+<section class="details">
+  <h2 class="details-title">Λεπτομέρειες</h2>
+  <div class="details-rows">
+    <div class="detail-row">
+      <div class="detail-key">Ημερομηνια</div>
+      <div class="detail-val">Κυριακή 6 Δεκεμβρίου 2026 · 9:00 - 14:00</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Τοποθεσια</div>
+      <div class="detail-val">Θεσσαλονίκη - ανακοινώνεται σε επιβεβαιωμένους</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Κοστος</div>
+      <div class="detail-val price-big">150€</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Μορφη</div>
+      <div class="detail-val">Εντατικό workshop - μικρός αριθμός συμμετεχόντων</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Πιστοποιητικο</div>
+      <div class="detail-val">Παρέχεται σε όλες</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Instagram</div>
+      <div class="detail-val">@stergiouxara</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-key">Τηλεφωνο</div>
+      <div class="detail-val">+30 693 839 7383</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="form">
+  <h2 class="cta-title">Κράτησε τη<br><em>θέση σου</em></h2>
+  <p class="cta-desc">Οι θέσεις είναι περιορισμένες. Συμπλήρωσε τη φόρμα και η Χαρά θα επικοινωνήσει μαζί σου προσωπικά.</p>
+  <a class="cta-btn" href="https://forms.gle/Te5YWnPdZfxB9coL9" target="_blank" rel="noopener">Δηλωστε Συμμετοχη →</a>
+  <p class="cta-note">Ανοίγει σε νέα καρτέλα · Διαρκεί 2 λεπτά</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">ΧΑΡΑ ΣΤΕΡΓΙΟΥ</div>
+  <div class="footer-links">
+    <span>@stergiouxara</span>
+    <span>+30 693 839 7383</span>
+    <span>Hair Educator</span>
+    <span>Θεσσαλονίκη · 2026</span>
+  </div>
+</footer>
+</body>
+</html>
